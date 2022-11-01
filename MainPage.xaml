@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MAUIPlayListAnimation.Controls"
+             Shell.NavBarIsVisible="False"
+             x:Class="MAUIPlayListAnimation.MainPage">
+        <Grid RowDefinitions="Auto, *, 1.5*">
+            <Grid x:Name="ToolBar" Grid.Row="0" Margin="10" ColumnDefinitions="Auto, *, Auto">
+                <Image   Grid.Column="0" Source="arrow_down" WidthRequest="25" HeightRequest="25"/>
+                <Label 
+                Grid.Column="1"
+                Text="My Playlists"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                FontSize="16"
+                FontFamily="RubikMedium"/>
+                <Image   Grid.Column="2" Source="magnifying_glass_solid" WidthRequest="25" HeightRequest="25"/>
+            </Grid>
+            <Grid HorizontalOptions="Start" TranslationY="-100" x:Name="ToolBarWithBackButton" Grid.Row="0" Margin="10">
+                <Image Source="back_left" WidthRequest="25" HeightRequest="25"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BackButtonTapGestureRecognizer_Tapped"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+            <Grid VerticalOptions="Center" Margin="0,0,0,120"  Grid.Row="1" Grid.RowSpan="2">
+                <Grid x:Name="FirstGrid" Grid.Row="1"
+               TranslationY="-60"
+               Scale="0.85"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center">
+                    <Border
+                StrokeShape="RoundRectangle 15"
+                HeightRequest="200" WidthRequest="200">
+                        <Image Source="image_1.jpeg" Aspect="AspectFill"/>
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                    Radius="10"
+                                    Opacity="0.2" />
+                        </Border.Shadow>
+                </Border>
+                </Grid>
+                <Grid x:Name="SecondGrid" Grid.Row="1"
+           TranslationY="-40"
+           Scale="0.90"
+           VerticalOptions="Center" 
+           HorizontalOptions="Center">
+                    <Border
+                StrokeShape="RoundRectangle 15"
+                Stroke="Transparent"
+                HeightRequest="200" WidthRequest="200">
+                        <Image Source="image_2.jpeg" Aspect="AspectFill"/>
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                    Radius="10"
+                                    Opacity="0.2" />
+                        </Border.Shadow>
+                </Border>
+                </Grid>
+                <Grid x:Name="ThirdGrid" Grid.Row="1"
+           TranslationY="-20"
+           Scale="0.95"
+           VerticalOptions="Center" 
+           HorizontalOptions="Center">
+                    <Border
+                StrokeShape="RoundRectangle 15"
+                HeightRequest="200" WidthRequest="200">
+                        <Image Source="image_3.jpeg" Aspect="AspectFill"/>
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                    Radius="10"
+                                    Opacity="0.2" />
+                        </Border.Shadow>
+                </Border>
+                </Grid>
+                <Grid x:Name="FourthGrid" Grid.Row="1"
+           VerticalOptions="Center" 
+           HorizontalOptions="Center">
+                    <Border
+                StrokeShape="RoundRectangle 15"
+                HeightRequest="200" WidthRequest="200">
+                        <Image Source="image_4.jpeg" Aspect="AspectFill"/>
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                Radius="10"
+                                Opacity="0.2" />
+                        </Border.Shadow>
+                </Border>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="FourthGridTapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                        <TapGestureRecognizer Tapped="FourthGridTapGestureRecognizer_Tapped_Double" NumberOfTapsRequired="2"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
+            </Grid>
+            <controls:RecentPlayList VerticalOptions="End" IsVisible="True" x:Name="RecentPlayListView" Grid.Row="2"/>
+            <controls:PlayListControl IsVisible="False"  x:Name="PlayListView" Grid.Row="2"/>
+        </Grid>
+</ContentPage>
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUIPlayListAnimation.Controls.PlayListControl">
+    <VerticalStackLayout Padding="15" Spacing="10">
+        <Label 
+            Text="Acoustic"
+            FontFamily="RubikMedium"
+            FontSize="16"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Grid Padding="10" ColumnDefinitions="*,*,*">
+            <Image Margin="10,0,0,0" HorizontalOptions="Center" Source="shuffle_solid" WidthRequest="25" HeightRequest="25"/>
+            <Border Grid.Column="1"
+                    StrokeShape="RoundRectangle 40"
+                    Stroke="#43AEDE"
+                    Background="#43AEDE"
+                    HeightRequest="60" WidthRequest="60">
+                <Image  Source="pause_solid" WidthRequest="25" HeightRequest="25"/>
+            </Border>
+            <Image Margin="0,0,10,0"  Grid.Column="2" Source="repeat_solid" WidthRequest="25" HeightRequest="25"/>
+        </Grid>
+        <Label 
+            Text="Upcoming Songs"
+            FontFamily="RubikRegular"
+            FontSize="16"/>
+        <CollectionView ItemsSource="{Binding RecentPlayList}" >
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="5" Orientation="Vertical">
+                </LinearItemsLayout>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnSpacing="10" ColumnDefinitions="Auto, *, Auto, Auto">
+                        <Border Grid.Column="0"
+                            StrokeShape="RoundRectangle 10"
+                            HeightRequest="80" WidthRequest="80">
+                            <Image Source="{Binding ImageURL}" Aspect="AspectFill"/>
+                        </Border>
+                        <Grid VerticalOptions="Center" Grid.Column="1" RowSpacing="10" RowDefinitions="Auto, Auto" ColumnDefinitions="Auto, Auto">
+                            <Label 
+                                Text="Song Title"
+                                FontFamily="RubikMedium"
+                                Grid.ColumnSpan="2"
+                                FontSize="16"/>
+                            <Image Grid.Row="1"
+                                   HorizontalOptions="Start"
+                                   Opacity="0.5"
+                                   Source="headphones_simple_solid.svg"
+                                   WidthRequest="16" HeightRequest="16"/>
+                            <Label 
+                                Text="10.000.000"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="10,0,0,0"
+                                Opacity="0.5"
+                                HorizontalOptions="Start"
+                                VerticalTextAlignment="Center"
+                                FontFamily="RubikRegular"
+                                FontSize="12"/>
+                        </Grid>
+                        <Image Grid.Column="2" Source="heart_solid" WidthRequest="20" HeightRequest="20"/>
+                        <Image Grid.Column="3"  Opacity="0.5" Source="ellipsis_solid" WidthRequest="20" HeightRequest="20"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentView>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUIPlayListAnimation.Controls.RecentPlayList">
+    <VerticalStackLayout Spacing="10" Padding="10">
+        <Label 
+            Text="Recently Played"
+            VerticalOptions="Center" 
+            FontSize="16"
+            FontFamily="RubikMedium"
+            HorizontalOptions="Start" />
+        <CollectionView ItemsSource="{Binding RecentPlayList}" >
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="10" Orientation="Horizontal">
+                </LinearItemsLayout>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        StrokeShape="RoundRectangle 15"
+                        HeightRequest="100" WidthRequest="100">
+                        <Image Source="{Binding ImageURL}" Aspect="AspectFill"/>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentView>
